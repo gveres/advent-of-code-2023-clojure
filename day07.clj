@@ -79,7 +79,7 @@ result-1 ;; => 253910319
   (let [freqs (frequencies h)
         jokers (get freqs \J 0)
         max-non-joker (or (last (sort-by val (frequencies (str/replace h #"J" ""))))
-                          (clojure.lang.MapEntry/create \K 0))
+                          (first {\K 0}))
         joker-adjusted-freqs (dissoc
                               (merge freqs {(key max-non-joker) (+ jokers (val max-non-joker))})
                               \J)]
