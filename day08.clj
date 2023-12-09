@@ -2,7 +2,8 @@
   (:require
    clojure.core.reducers
    [clojure.java.io :as io]
-   [clojure.string :as str]))
+   [clojure.string :as str]
+   [clojure.math.numeric-tower :as math]))
 
 (def lines (with-open [rdr (io/reader "day08-input.txt")]
              (doall (line-seq rdr))))
@@ -46,3 +47,22 @@
              (recur new-location (inc steps)))))))
 
 ;; 20093
+
+;; part 2
+
+(def part2-starts (filter #(str/ends-with? % "A") (keys nodes)))
+
+(defn steps-til-z-from [start]
+  (loop [current-location start
+         steps 0]
+    (let [dir (nth directions-inf steps)
+          new-location (next-location nodes current-location dir)]
+      (if (str/ends-with? new-location "Z")
+        [(inc steps) new-location]
+        (recur new-location (inc steps))))))
+
+(def cycle-sizes (map first (map steps-til-z-from part2-starts)))
+
+;; the input data was crafted in a way that the cycle sizes are constant (once we know the first A->Z cycle size, doing a cycle of the same size also does A->Z. No idea how to figure this out without guesswork and dumb luck, but this makes it possible to use lcm. Otherwise this would be waaay harder.)
+
+(def result-2 (reduce math/lcm cycle-sizes))
