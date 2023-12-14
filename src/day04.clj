@@ -4,7 +4,7 @@
    [clojure.set :as set]
    [clojure.string :as str]))
 
-(def lines (with-open [rdr (io/reader "day04-input.txt")]
+(def lines (with-open [rdr (io/reader "inputs/day04-input.txt")]
              (doall (line-seq rdr))))
 
 (def one-line (nth lines 3))

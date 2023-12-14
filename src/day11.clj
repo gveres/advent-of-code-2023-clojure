@@ -7,7 +7,7 @@
    [clojure.string :as str]
    [clojure.math.numeric-tower :as math]))
 
-(def lines (with-open [rdr (io/reader "day11-input.txt")]
+(def lines (with-open [rdr (io/reader "inputs/day11-input.txt")]
              (doall (line-seq rdr))))
 
 (def sample-lines

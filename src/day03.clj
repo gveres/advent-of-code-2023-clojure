@@ -3,7 +3,7 @@
    [clojure.java.io :as io]
    [clojure.set :as set]))
 
-(def lines (with-open [rdr (io/reader "day03-input.txt")]
+(def lines (with-open [rdr (io/reader "inputs/day03-input.txt")]
              (doall (line-seq rdr))))
 
 (def one-line (nth lines 3))

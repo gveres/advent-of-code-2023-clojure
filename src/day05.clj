@@ -4,7 +4,7 @@
    [clojure.java.io :as io]
    [clojure.string :as str]))
 
-(def lines (with-open [rdr (io/reader "day05-input.txt")]
+(def lines (with-open [rdr (io/reader "inputs/day05-input.txt")]
              (doall (line-seq rdr))))
 
 (def seeds (map read-string (-> (first lines)

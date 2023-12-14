@@ -3,7 +3,7 @@
    [clojure.java.io :as io]
    [clojure.string :as str]))
 
-(def lines (with-open [rdr (io/reader "day02-input.txt")]
+(def lines (with-open [rdr (io/reader "inputs/day02-input.txt")]
              (doall (line-seq rdr))))
 
 (defn game-string-to-data [s]

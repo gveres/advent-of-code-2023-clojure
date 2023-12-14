@@ -3,7 +3,7 @@
    [clojure.java.io :as io]
    [clojure.string :as str]))
 
-(def lines (with-open [rdr (io/reader "day01-input.txt")]
+(def lines (with-open [rdr (io/reader "inputs/day01-input.txt")]
              (doall (line-seq rdr))))
 
 (def matcher (re-matcher #"\d+" "abc12345def"))

@@ -1,2 +1,4 @@
-{:deps {org.clojure/math.numeric-tower {:mvn/version "0.0.5"}
-        org.clojure/math.combinatorics {:mvn/version "0.2.0"}}}
+{:paths ["src" "inputs"]
+ :deps {org.clojure/math.numeric-tower {:mvn/version "0.0.5"}
+        org.clojure/math.combinatorics {:mvn/version "0.2.0"}
+        org.clojure/core.match {:mvn/version "1.0.1"}}}
