@@ -61,15 +61,17 @@
     (map-indexed
      (fn [i l] (* (- max-load i) (utils/count-if #{\O} l))) lines)))
 
-(def result-sample
-  (reduce + (-> sample-lines
-                tilt-north
-                calculate-line-loads-north)))
+(comment
 
-(def result-part1
-  (reduce + (-> lines
-                tilt-north
-                calculate-line-loads-north)))
+  (def result-sample
+    (reduce + (-> sample-lines
+                  tilt-north
+                  calculate-line-loads-north)))
+
+  (def result-part1
+    (reduce + (-> lines
+                  tilt-north
+                  calculate-line-loads-north))))
 
 ;;part 2
 
@@ -82,7 +84,7 @@
 
 (def spin-cycle (memoize spin-cycle*))
 
-(def spinned-seq (iterate spin-cycle lines))
+;; (def spinned-seq (iterate spin-cycle lines))
 
 (defn lead-in-and-cycle-size [seq]
   (loop [knowns #{}
@@ -95,10 +97,10 @@
                (assoc knowns-to-index current index)
                (inc index))))))
 
-(lead-in-and-cycle-size spinned-seq)
+;; (lead-in-and-cycle-size spinned-seq)
 ;; lead-in is 124 , cycle size is 26 for the real one
 
-(lead-in-and-cycle-size (iterate spin-cycle sample-lines))
+;; (lead-in-and-cycle-size (iterate spin-cycle sample-lines))
 ;; 3 and 7 for the sample
 
 (defn shrink-cycle [n lead-in cycle-size]
@@ -111,7 +113,7 @@
     (reduce + (calculate-line-loads-north (nth spin-seq result-index)))))
 
 
-(calculate-result-2 sample-lines)
+;; (calculate-result-2 sample-lines)
 ;; => 64
 
 (time (calculate-result-2 lines))
